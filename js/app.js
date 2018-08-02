@@ -13,6 +13,10 @@ console.log("test");
 
 
 
+
+
+
+
 ele[0].addEventListener('click', function() {
 	count +=1;
 	console.log(totalCount);
@@ -23,7 +27,7 @@ ele[0].addEventListener('click', function() {
 });
 
 
-	const t1 = document.querySelector('.cat1');
+	const t1 = document.querySelector('.cat');
 	const img = document.querySelector('.my-elem');
 	const t2img = '<img class = "my-elem2" src="img/cat.jpg">';
 	const t2title = '<h3>ele2</h3>';
