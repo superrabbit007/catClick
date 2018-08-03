@@ -1,9 +1,7 @@
 
 
-
-
 let cat1 = document.getElementsByClassName('cat0');
-console.log(cat1);
+// console.log(cat1);
 let cat1Text = cat1[0].outerHTML;
 let cat2Text = cat1Text;
 let cat5 = cat4 = cat3 = cat2 = cat1;
@@ -22,12 +20,65 @@ let catsSrc = [src1,src2, src3, src4, src5];
 
 
 
+function click11() {
+
+	document.querySelector('.c1').addEventListener('click', function() {
+		let current = document.getElementsByClassName('cat');
+		let am1 = document.getElementsByClassName('cat1');
+		let el1 = document.querySelector('.cat');
+		console.log(current[0].innerHTML);
+		console.log(am1);
+		let aa = document.createElement('div');
+		aa.innerHTML = am1[0].innerHTML;
+		aa.classList.add('cat1');
+		let bb = document.getElementsByClassName('container');
+		bb[0].appendChild(aa);
+		el1.remove();
+
+
+
+	});
+}
+
+
+
+
+
+function sidebarClick() {
+
+
+}
+
+
+// sidebar的html绘制 
+
+let side1 = document.getElementsByClassName('c0');
+for (var i = 0; i < cats.length; i++) {
+	let side = side1[0].innerHTML;
+
+	let eleSide = document.createElement('li');
+	eleSide.innerHTML = side;
+	eleSide.classList.add('c'+ (i+1));
+	console.log(eleSide.children);
+	eleSide.children[0].innerText = "cat" + (i+1);
+
+	let sideBar = document.getElementsByClassName('list');
+	sideBar[0].appendChild(eleSide);
+	if(i === 4) {
+		side1[0].remove();
+	}
+}
+
+
+
+
+
 
 
 for (var i = 0; i < cats.length; i++) {
 
 	let cat = cats[i];
-	console.log(cat);
+	// console.log(cat);
 	//将列表中每只猫的innerHTML赋值给catInner
 	let catInner = cat[0].innerHTML;
 	//每只猫重命名
@@ -39,12 +90,12 @@ for (var i = 0; i < cats.length; i++) {
 	elem.classList.add('cat'+(i+1));
 	// let a = elem;
 	// console.log(a);
-	console.log(elem.children[0]);
-	elem.children[0].innerHTML = catName ;
+	// console.log(elem.children[0]);
+	elem.children[0].textContent = catName ;
 	//将图片的地址放在列表中，根据对应的i， 加载不同的图片，写入innerHTML中
 	elem.children[1].outerHTML = catsSrc[i];
 
-	console.log(elem);
+	// console.log(elem);
 	
 	// console.log(elem.children);
 	let count = 0;
