@@ -54,6 +54,9 @@ function sidebarClick() {
 
 // sidebar的html绘制 
 
+let countListClick = [0,0,0,0,0];
+
+
 let side1 = document.getElementsByClassName('c0');
 for (var i = 0; i < cats.length; i++) {
 	let side = side1[0].innerHTML;
@@ -69,10 +72,11 @@ for (var i = 0; i < cats.length; i++) {
 	if(i === 4) {
 		side1[0].remove();
 	}
-
+	// let countList = [0,0,0,0,0];
 	eleSide.addEventListener('click', (function(index) {
 		return function() {
 			console.log("test sidebar");
+			// countList[index] = 
 			catClick(index);
 		};
 
@@ -107,21 +111,24 @@ function catClick(i) {
         //将图片的地址放在列表中，根据对应的i， 加载不同的图片，写入innerHTML中
         elem.children[1].outerHTML = catsSrc[i];
 
+        elem.children[2].innerText = 'Total clicks is ' + countListClick[i] + '.';
+
         // console.log(elem);
 
         // console.log(elem.children);
-        let count = 0;
-        elem.addEventListener('click', (function(catDiv, countN) {
+        // let count = 0;
+        elem.addEventListener('click', (function(i) {
             return function() {
+                let countN = countListClick[i];
                 countN += 1;
-                console.log(countN);
-                console.log(catDiv);
-                // catDiv.children[1].innerText = catName;
 
-                catDiv.children[2].textContent = 'Total clicks is ' + countN + '.';
+                console.log(countN);
+                // console.log(catDiv);
+				countListClick[i] = countN;                
+               	elem.children[2].textContent = 'Total clicks is ' + countN + '.';
 
             };
-        })(elem, count));
+        })(i));
         let catContent = document.getElementsByClassName('cat');
         // console.log(catContent);
         //添加图片前，先清空div中的图片信息（避免界面中显示多张图片）
